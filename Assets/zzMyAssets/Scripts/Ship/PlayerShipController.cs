@@ -20,6 +20,10 @@ public class PlayerShipController : MonoBehaviour {
         m_states.m_current.Update();
     }
 
+    private void FixedUpdate()
+    {
+        m_states.m_current.FixedUpdate();
+    }
     private void Awake()
     {
         //m_states.m_disabled = ScriptableObject.CreateInstance<PSS_Disabled>().Init(this);
@@ -36,9 +40,12 @@ public class PlayerShipController : MonoBehaviour {
     }
 
     [Header("Settings")]
-    public float m_tiltDeadZone = .05f;
+    public float m_tiltDeadZone = .1f;
+    public float m_maxtTiltToForce = .4f;
     public float m_lateralPerUnitAccel = .5f;
+    public float m_lateralMaxVelocity = 2;
     public float m_forwardAccel = 1f;
+    public float m_forwardMaxVelocity = 10;
 
     [SerializeField]
     PlayerShipControllerStates m_states;
@@ -62,6 +69,7 @@ public class PlayerShipController : MonoBehaviour {
     public class PlayerShipControllerReferences
     {
         public Transform m_cameraAnchor;
-        public GameObject m_meshHolder;
+        public Transform m_meshHolder;
+        public Rigidbody m_rigidbody;
     }
 }

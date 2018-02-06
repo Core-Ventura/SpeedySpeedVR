@@ -10,7 +10,7 @@ public class GameController : MonoBehaviour {
     {
         Quaternion newRotation = new Quaternion(m_references.m_rotationAnchor.localRotation.x, m_references.m_rotationAnchor.localRotation.y, _newRotation.z, m_references.m_rotationAnchor.localRotation.w);
 
-        Debug.Log("--->" + newRotation.eulerAngles);
+        
                   
         m_references.m_rotationAnchor.localRotation = newRotation;
 
@@ -19,7 +19,7 @@ public class GameController : MonoBehaviour {
 
     private void Update()
     {
-        Debug.Log("---" +m_references.m_rotationAnchor.localRotation);
+        //Debug.Log("---" +m_references.m_rotationAnchor.localRotation);
     }
 
 
@@ -35,7 +35,7 @@ public class GameController : MonoBehaviour {
 
     private void Awake()
     {
-        m_mainCamera = Camera.main;
+       
     }
 
     [Header("Settings")]
@@ -47,8 +47,8 @@ public class GameController : MonoBehaviour {
 
     public GameControllerReferences m_references;
 
-    [HideInInspector]
-    public Camera m_mainCamera;
+    
+    public Transform m_mainCameraHolder;
 
     [System.Serializable]
     public class GameControllerReferences
