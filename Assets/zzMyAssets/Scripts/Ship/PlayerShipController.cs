@@ -30,14 +30,22 @@ public class PlayerShipController : MonoBehaviour {
         m_states.m_current = m_states.m_disabled;
 
         m_gamecontroller = FindObjectOfType<GameController>();
+
+
+        m_states.m_current = m_states.m_running;
     }
+
+    [Header("Settings")]
+    public float m_tiltDeadZone = .05f;
+    public float m_lateralPerUnitAccel = .5f;
+    public float m_forwardAccel = 1f;
 
     [SerializeField]
     PlayerShipControllerStates m_states;
-    [SerializeField]
-    PlayerShipControllerReferences m_references;
+    
+    public PlayerShipControllerReferences m_references;
 
-
+    [HideInInspector]
     public GameController m_gamecontroller;
 
     [System.Serializable]
@@ -54,5 +62,6 @@ public class PlayerShipController : MonoBehaviour {
     public class PlayerShipControllerReferences
     {
         public Transform m_cameraAnchor;
+        public GameObject m_meshHolder;
     }
 }

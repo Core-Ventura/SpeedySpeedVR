@@ -29,7 +29,6 @@ public class InputControllerMouse : MonoBehaviour {
     private void Start()
     {
         m_mouseLastPosition = Input.mousePosition;
-        m_currentRotation = 0;
         
     }
 
@@ -39,7 +38,6 @@ public class InputControllerMouse : MonoBehaviour {
     
 
     GameObject m_rotationHelper;
-    float m_currentRotation;
  
     private GameController m_gameController;
 }
