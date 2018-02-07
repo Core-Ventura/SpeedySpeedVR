@@ -39,6 +39,12 @@ public class PlayerShipController : MonoBehaviour {
         m_states.m_current = m_states.m_running;
     }
 
+    private void Start()
+    {
+        MainHudController mainHudController = GameObject.Instantiate(m_stencils.m_mainHud, m_references.m_mainHudAnchor);
+
+    }
+
     [Header("Settings")]
     public float m_tiltDeadZone = .1f;
     public float m_maxtTiltToForce = .4f;
@@ -47,11 +53,11 @@ public class PlayerShipController : MonoBehaviour {
     public float m_forwardAccel = 1f;
     public float m_forwardMaxVelocity = 10;
 
-    [SerializeField]
-    PlayerShipControllerStates m_states;
+    public PlayerShipControllerStates m_states;
     
     public PlayerShipControllerReferences m_references;
 
+    public PlayerShipControllerStencils m_stencils;
     [HideInInspector]
     public GameController m_gamecontroller;
 
@@ -71,5 +77,13 @@ public class PlayerShipController : MonoBehaviour {
         public Transform m_cameraAnchor;
         public Transform m_meshHolder;
         public Rigidbody m_rigidbody;
+
+        public Transform m_mainHudAnchor;
+    }
+
+    [System.Serializable]
+    public class PlayerShipControllerStencils
+    {
+        public MainHudController m_mainHud;
     }
 }
