@@ -20,6 +20,10 @@ public class PlayerShipController : MonoBehaviour {
         m_states.m_current.Update();
     }
 
+    private void FixedUpdate()
+    {
+        m_states.m_current.FixedUpdate();
+    }
     private void Awake()
     {
         //m_states.m_disabled = ScriptableObject.CreateInstance<PSS_Disabled>().Init(this);
@@ -30,14 +34,31 @@ public class PlayerShipController : MonoBehaviour {
         m_states.m_current = m_states.m_disabled;
 
         m_gamecontroller = FindObjectOfType<GameController>();
+
+
+        m_states.m_current = m_states.m_running;
     }
 
-    [SerializeField]
-    PlayerShipControllerStates m_states;
-    [SerializeField]
-    PlayerShipControllerReferences m_references;
+    private void Start()
+    {
+        MainHudController mainHudController = GameObject.Instantiate(m_stencils.m_mainHud, m_references.m_mainHudAnchor);
 
+    }
 
+    [Header("Settings")]
+    public float m_tiltDeadZone = .1f;
+    public float m_maxtTiltToForce = .4f;
+    public float m_lateralPerUnitAccel = .5f;
+    public float m_lateralMaxVelocity = 2;
+    public float m_forwardAccel = 1f;
+    public float m_forwardMaxVelocity = 10;
+
+    public PlayerShipControllerStates m_states;
+    
+    public PlayerShipControllerReferences m_references;
+
+    public PlayerShipControllerStencils m_stencils;
+    [HideInInspector]
     public GameController m_gamecontroller;
 
     [System.Serializable]
@@ -54,5 +75,15 @@ public class PlayerShipController : MonoBehaviour {
     public class PlayerShipControllerReferences
     {
         public Transform m_cameraAnchor;
+        public Transform m_meshHolder;
+        public Rigidbody m_rigidbody;
+
+        public Transform m_mainHudAnchor;
+    }
+
+    [System.Serializable]
+    public class PlayerShipControllerStencils
+    {
+        public MainHudController m_mainHud;
     }
 }

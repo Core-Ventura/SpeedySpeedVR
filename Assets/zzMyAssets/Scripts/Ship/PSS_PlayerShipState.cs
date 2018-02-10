@@ -6,4 +6,6 @@ using UnityEngine;
 public abstract class PSS_PlayerShipState : StateGeneric<PlayerShipController>
 {
 
+
+    public abstract void FixedUpdate();
 }
