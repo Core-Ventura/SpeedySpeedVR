@@ -7,7 +7,7 @@ public class MainHudController : MonoBehaviour {
 
 	void Update ()
     {
-        Debug.Log("--->" + m_references.m_playerShip.m_references.m_rigidbody.velocity.x);
+        
         m_references.m_speedSlider.value = m_references.m_playerShip.m_references.m_rigidbody.velocity.z / m_references.m_playerShip.m_forwardMaxVelocity;
         AA_UpdateLateralSpeedDisplay();
     }
