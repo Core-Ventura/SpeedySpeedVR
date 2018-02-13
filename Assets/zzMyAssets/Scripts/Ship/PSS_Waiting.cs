@@ -15,7 +15,6 @@ public class PSS_Waiting : PSS_PlayerShipState
 
     public override void FixedUpdate()
     {
-        throw new NotImplementedException();
     }
 
     public override void Update()
