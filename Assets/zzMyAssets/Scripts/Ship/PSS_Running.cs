@@ -17,52 +17,12 @@ public class PSS_Running : PSS_PlayerShipState
     {
 
         //Debug.Log("--->" + m_target.m_references.m_meshHolder.rotation.eulerAngles + "+++" + m_target.m_references.m_meshHolder.rotation);
-        AA_AddLateralForce();
-        AA_AddForwardForce();
+        m_target.AA_AddLateralForce();
+        m_target.AA_AddForwardForce();
         
     }
 
-    private void AA_AddLateralForce()
-    {
-        float absoluteTilt = Mathf.Abs(m_target.m_references.m_meshHolder.rotation.z);
-
-        if (absoluteTilt - m_target.m_tiltDeadZone <= 0)
-        {
-            if (OnNoForce != null)
-                OnNoForce();
-            return;
-        }
-
-
-        
-        Vector3 forceDirection;
-        if (m_target.m_references.m_meshHolder.rotation.z > 0)
-        {
-            forceDirection = -m_target.transform.right;
-            if (OnForceLeft != null)
-                OnForceLeft ();
-        }
-        else
-        {
-            forceDirection = m_target.transform.right;
-            if (OnForceRight != null)
-                OnForceRight();
-        }
-
-        float forceFactor = Mathf.Lerp(0, m_target.m_lateralPerUnitAccel, (absoluteTilt - m_target.m_tiltDeadZone) / m_target.m_maxtTiltToForce);
-
-        m_target.m_references.m_rigidbody.AddForce(forceDirection * forceFactor, ForceMode.Force);
-       
-    }
-
-    private void AA_AddForwardForce ()
-    {
-        if (m_target.m_references.m_rigidbody.velocity.z >= m_target.m_forwardMaxVelocity)
-            return;
-        m_target.m_references.m_rigidbody.AddForce(m_target.transform.forward * m_target.m_forwardAccel);
-
-        //Debug.Log("---> " + m_target.m_references.m_rigidbody.velocity);
-    }
+ 
     public override void Update()
     {
         m_target.m_gamecontroller.m_mainCameraHolder.transform.position = m_target.m_references.m_cameraAnchor.transform.position;
@@ -70,13 +30,6 @@ public class PSS_Running : PSS_PlayerShipState
     }
 
 
-    public delegate void ForceLeftAction();
-    public  event ForceLeftAction OnForceLeft;
 
-    public delegate void ForceRightAction();
-    public event ForceRightAction OnForceRight;
-
-    public delegate void NoForceAction();
-    public event NoForceAction OnNoForce;
 }
 

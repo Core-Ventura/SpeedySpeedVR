@@ -7,7 +7,7 @@ public class MainHudController : MonoBehaviour {
 
 	void Update ()
     {
-        Debug.Log("--->" + m_references.m_playerShip.m_references.m_rigidbody.velocity.x);
+        
         m_references.m_speedSlider.value = m_references.m_playerShip.m_references.m_rigidbody.velocity.z / m_references.m_playerShip.m_forwardMaxVelocity;
         AA_UpdateLateralSpeedDisplay();
     }
@@ -53,16 +53,16 @@ public class MainHudController : MonoBehaviour {
     }
     private void OnEnable()
     {
-        m_references.m_playerShip.m_states.m_running.OnForceLeft += AA_UpdateDisplayForceLeft;
-        m_references.m_playerShip.m_states.m_running.OnForceRight += AA_UpdateDisplayForceRight;
-        m_references.m_playerShip.m_states.m_running.OnNoForce += AA_UpdateDisplayNoForce;
+        m_references.m_playerShip.OnForceLeft += AA_UpdateDisplayForceLeft;
+        m_references.m_playerShip.OnForceRight += AA_UpdateDisplayForceRight;
+        m_references.m_playerShip.OnNoForce += AA_UpdateDisplayNoForce;
     }
 
     private void OnDisable()
     {
-        m_references.m_playerShip.m_states.m_running.OnForceLeft -= AA_UpdateDisplayForceLeft;
-        m_references.m_playerShip.m_states.m_running.OnForceRight -= AA_UpdateDisplayForceRight;
-        m_references.m_playerShip.m_states.m_running.OnNoForce -= AA_UpdateDisplayNoForce;
+        m_references.m_playerShip.OnForceLeft -= AA_UpdateDisplayForceLeft;
+        m_references.m_playerShip.OnForceRight -= AA_UpdateDisplayForceRight;
+        m_references.m_playerShip.OnNoForce -= AA_UpdateDisplayNoForce;
     }
 
     private void Awake()

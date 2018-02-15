@@ -15,6 +15,51 @@ public class PlayerShipController : MonoBehaviour {
 
     #endregion
 
+    #region ship behaviours
+    public void AA_AddLateralForce()
+    {
+        float absoluteTilt = Mathf.Abs(m_references.m_meshHolder.rotation.z);
+
+        if (absoluteTilt - m_tiltDeadZone <= 0)
+        {
+            if (OnNoForce != null)
+                OnNoForce();
+            return;
+        }
+
+
+
+        Vector3 forceDirection;
+        if (m_references.m_meshHolder.rotation.z > 0)
+        {
+            forceDirection = -transform.right;
+            if (OnForceLeft != null)
+                OnForceLeft();
+        }
+        else
+        {
+            forceDirection = transform.right;
+            if (OnForceRight != null)
+                OnForceRight();
+        }
+
+        float forceFactor = Mathf.Lerp(0, m_lateralPerUnitAccel, (absoluteTilt - m_tiltDeadZone) / m_maxtTiltToForce);
+
+        m_references.m_rigidbody.AddForce(forceDirection * forceFactor, ForceMode.Force);
+
+    }
+
+    public void AA_AddForwardForce()
+    {
+        if (m_references.m_rigidbody.velocity.z >= m_forwardMaxVelocity)
+            return;
+        m_references.m_rigidbody.AddForce(transform.forward * m_forwardAccel);
+
+        //Debug.Log("---> " + m_references.m_rigidbody.velocity);
+    }
+
+    #endregion
+
     private void Update()
     {
         m_states.m_current.Update();
@@ -37,6 +82,7 @@ public class PlayerShipController : MonoBehaviour {
 
 
         m_states.m_current = m_states.m_running;
+        //m_states.m_current = m_states.m_waiting;
     }
 
     private void Start()
@@ -60,6 +106,22 @@ public class PlayerShipController : MonoBehaviour {
     public PlayerShipControllerStencils m_stencils;
     [HideInInspector]
     public GameController m_gamecontroller;
+
+
+
+
+
+
+    public delegate void ForceLeftAction();
+    public event ForceLeftAction OnForceLeft;
+
+    public delegate void ForceRightAction();
+    public event ForceRightAction OnForceRight;
+
+    public delegate void NoForceAction();
+    public event NoForceAction OnNoForce;
+
+
 
     [System.Serializable]
     public class PlayerShipControllerStates

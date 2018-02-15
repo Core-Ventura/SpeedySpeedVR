@@ -54,9 +54,10 @@ GameObject:
   - component: {fileID: 4526342285793302}
   - component: {fileID: 33502263329778444}
   - component: {fileID: 23922893151163936}
+  - component: {fileID: 65456534446583436}
   m_Layer: 0
   m_Name: Cube (1)
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -198,10 +199,9 @@ GameObject:
   - component: {fileID: 4596251422339460}
   - component: {fileID: 114223816270894466}
   - component: {fileID: 54032201971133880}
-  - component: {fileID: 136930638701814492}
   m_Layer: 0
   m_Name: PlayerShip
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -276,8 +276,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1779474263155712}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.00000049432, y: 0.07785, z: -0.133}
-  m_LocalScale: {x: 0.0072222766, y: 0.13977149, z: 0.104695335}
+  m_LocalPosition: {x: -0.00000070239, y: 0.084687, z: -0.26648}
+  m_LocalScale: {x: 0.017647687, y: 0.3415326, z: 0.25582376}
   m_Children: []
   m_Father: {fileID: 4700310569770974}
   m_RootOrder: 2
@@ -289,8 +289,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1385784070828550}
   m_LocalRotation: {x: -0, y: -0, z: -0.8032149, w: 0.59568936}
-  m_LocalPosition: {x: 0.1045, y: 0.02981, z: -0.034291}
-  m_LocalScale: {x: 0.0072216215, y: 0.19193839, z: 0.10469636}
+  m_LocalPosition: {x: 0.25535, y: -0.032699, z: -0.025285}
+  m_LocalScale: {x: 0.01764608, y: 0.46900305, z: 0.25582626}
   m_Children: []
   m_Father: {fileID: 4700310569770974}
   m_RootOrder: 3
@@ -302,8 +302,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1229132046255644}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.00000049432, y: 0.064, z: 0.039331}
-  m_LocalScale: {x: 0.07140306, y: 0.08384927, z: 0.1330155}
+  m_LocalPosition: {x: -0.00000070239, y: 0.050844, z: 0.15461}
+  m_LocalScale: {x: 0.1744739, y: 0.20488626, z: 0.32502428}
   m_Children: []
   m_Father: {fileID: 4700310569770974}
   m_RootOrder: 0
@@ -315,7 +315,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1286998481367208}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.1876, y: 0.0046, z: -0.0842}
+  m_LocalPosition: {x: 0.459, y: -0.094, z: -0.147}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4734437964733838}
@@ -328,8 +328,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1048827349152812}
   m_LocalRotation: {x: -0.8032127, y: 0.59569234, z: -0, w: 0}
-  m_LocalPosition: {x: -0.1045, y: 0.02981, z: -0.034291}
-  m_LocalScale: {x: 0.0072216215, y: 0.19193943, z: 0.10469636}
+  m_LocalPosition: {x: -0.25535, y: -0.032699, z: -0.025285}
+  m_LocalScale: {x: 0.01764608, y: 0.4690056, z: 0.25582626}
   m_Children: []
   m_Father: {fileID: 4700310569770974}
   m_RootOrder: 4
@@ -356,7 +356,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1972550621113784}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0.032, z: -0.198}
+  m_LocalPosition: {x: -0, y: 0.032, z: -0.425}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4734437964733838}
@@ -369,8 +369,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1112793712651494}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.00000049432, y: 0.0426, z: -0.04053}
-  m_LocalScale: {x: 0.13081765, y: 0.06413954, z: 0.3119491}
+  m_LocalPosition: {x: -0.00000070239, y: -0.0014468, z: -0.04053}
+  m_LocalScale: {x: 0.3196539, y: 0.15672539, z: 0.7622497}
   m_Children: []
   m_Father: {fileID: 4700310569770974}
   m_RootOrder: 1
@@ -382,7 +382,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1587859054480010}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.933, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0.814}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4895354604423286}
@@ -460,7 +460,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1164965640674876}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.1876, y: 0.0046, z: -0.0842}
+  m_LocalPosition: {x: -0.459, y: -0.094, z: -0.147}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4734437964733838}
@@ -473,7 +473,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1159655973221322}
   m_LocalRotation: {x: 0.17364816, y: 0, z: 0, w: 0.9848078}
-  m_LocalPosition: {x: 0, y: 0.42, z: -1}
+  m_LocalPosition: {x: 0, y: 1.2, z: -2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4895354604423286}
@@ -723,6 +723,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.0000019, y: 1, z: 0.99999994}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!65 &65456534446583436
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1112793712651494}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: -0.00000023841858, z: -0.00000011920929}
 --- !u!96 &96057377750347068
 TrailRenderer:
   serializedVersion: 2
@@ -758,10 +770,10 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Time: 0.09
+  m_Time: 0.2
   m_Parameters:
     serializedVersion: 2
-    widthMultiplier: 0.05
+    widthMultiplier: 0.16
     widthCurve:
       serializedVersion: 2
       m_Curve:
@@ -784,7 +796,7 @@ TrailRenderer:
         outSlope: -0.7344381
         tangentMode: 1
       - serializedVersion: 2
-        time: 1
+        time: 0.5327759
         value: 0
         inSlope: 0
         outSlope: 0
@@ -794,7 +806,7 @@ TrailRenderer:
       m_RotationOrder: 0
     colorGradient:
       serializedVersion: 2
-      key0: {r: 1, g: 1, b: 1, a: 0.20784314}
+      key0: {r: 1, g: 1, b: 1, a: 0.41960785}
       key1: {r: 1, g: 1, b: 1, a: 0}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
@@ -811,7 +823,7 @@ TrailRenderer:
       ctime6: 0
       ctime7: 0
       atime0: 0
-      atime1: 65535
+      atime1: 15613
       atime2: 65535
       atime3: 0
       atime4: 0
@@ -863,7 +875,7 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Time: 0.2
+  m_Time: 0.4
   m_Parameters:
     serializedVersion: 2
     widthMultiplier: 0.3
@@ -872,24 +884,30 @@ TrailRenderer:
       m_Curve:
       - serializedVersion: 2
         time: 0
-        value: 0.30833435
-        inSlope: 0
-        outSlope: 0
+        value: 0.40665817
+        inSlope: 3.456256
+        outSlope: 3.456256
         tangentMode: 0
       - serializedVersion: 2
-        time: 0.13146418
-        value: 0.29794335
-        inSlope: -0.13485551
-        outSlope: -0.13485551
-        tangentMode: 1
+        time: 0.07818049
+        value: 0.8177607
+        inSlope: 1.9355073
+        outSlope: 1.9355073
+        tangentMode: 34
       - serializedVersion: 2
-        time: 0.24509788
-        value: 0.18327177
-        inSlope: -0.35703182
-        outSlope: -0.7344381
-        tangentMode: 1
+        time: 0.2794912
+        value: 0.5384697
+        inSlope: -1.6466017
+        outSlope: -1.6466017
+        tangentMode: 34
       - serializedVersion: 2
-        time: 1
+        time: 0.45095745
+        value: 0.21168238
+        inSlope: -0.822145
+        outSlope: -0.822145
+        tangentMode: 136
+      - serializedVersion: 2
+        time: 0.93444824
         value: 0
         inSlope: 0
         outSlope: 0
@@ -899,8 +917,8 @@ TrailRenderer:
       m_RotationOrder: 0
     colorGradient:
       serializedVersion: 2
-      key0: {r: 0, g: 1, b: 0.99999976, a: 0.41568628}
-      key1: {r: 1, g: 1, b: 1, a: 0}
+      key0: {r: 0, g: 1, b: 0.99999976, a: 1}
+      key1: {r: 0.013786763, g: 0.1102941, b: 0.10230728, a: 1}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
@@ -908,7 +926,7 @@ TrailRenderer:
       key6: {r: 0, g: 0, b: 0, a: 0}
       key7: {r: 0, g: 0, b: 0, a: 0}
       ctime0: 0
-      ctime1: 65535
+      ctime1: 24287
       ctime2: 0
       ctime3: 0
       ctime4: 0
@@ -916,7 +934,7 @@ TrailRenderer:
       ctime6: 0
       ctime7: 0
       atime0: 386
-      atime1: 65535
+      atime1: 8096
       atime2: 65535
       atime3: 0
       atime4: 0
@@ -925,7 +943,7 @@ TrailRenderer:
       atime7: 0
       m_Mode: 0
       m_NumColorKeys: 2
-      m_NumAlphaKeys: 2
+      m_NumAlphaKeys: 3
     numCornerVertices: 0
     numCapVertices: 0
     alignment: 0
@@ -968,10 +986,10 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Time: 0.09
+  m_Time: 0.2
   m_Parameters:
     serializedVersion: 2
-    widthMultiplier: 0.05
+    widthMultiplier: 0.16
     widthCurve:
       serializedVersion: 2
       m_Curve:
@@ -994,7 +1012,7 @@ TrailRenderer:
         outSlope: -0.7344381
         tangentMode: 1
       - serializedVersion: 2
-        time: 1
+        time: 0.5327759
         value: 0
         inSlope: 0
         outSlope: 0
@@ -1004,7 +1022,7 @@ TrailRenderer:
       m_RotationOrder: 0
     colorGradient:
       serializedVersion: 2
-      key0: {r: 1, g: 1, b: 1, a: 0.20784314}
+      key0: {r: 1, g: 1, b: 1, a: 0.41960785}
       key1: {r: 1, g: 1, b: 1, a: 0}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
@@ -1021,7 +1039,7 @@ TrailRenderer:
       ctime6: 0
       ctime7: 0
       atime0: 0
-      atime1: 65535
+      atime1: 15613
       atime2: 65535
       atime3: 0
       atime4: 0
@@ -1069,19 +1087,6 @@ MonoBehaviour:
     m_mainHud: {fileID: 114168031393611900, guid: ba1c1678c26b07c4c9aec482ca15cec0,
       type: 2}
   m_gamecontroller: {fileID: 0}
---- !u!136 &136930638701814492
-CapsuleCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1587859054480010}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.09
-  m_Height: 0.43
-  m_Direction: 2
-  m_Center: {x: 0, y: 0.06, z: -0.08}
 --- !u!224 &224537912238603630
 RectTransform:
   m_ObjectHideFlags: 1
@@ -1089,7 +1094,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1246680426137272}
   m_LocalRotation: {x: 0.3369525, y: -0, z: -0, w: 0.94152164}
-  m_LocalPosition: {x: 0, y: -0.17039871, z: -0.273}
+  m_LocalPosition: {x: -0.33200073, y: -0.17039871, z: -0.543}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4850200571402958}
@@ -1097,6 +1102,6 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.0000014305115, y: -0.17040034}
+  m_AnchoredPosition: {x: -0.332, y: -0.17040034}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
