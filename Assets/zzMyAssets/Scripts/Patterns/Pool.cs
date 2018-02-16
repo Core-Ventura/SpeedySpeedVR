@@ -31,6 +31,7 @@ public class Pool : ScriptableObject  {
         IPoolable poolable = item.GetComponent<IPoolable>();
         m_container.Add(item);
         poolable.SleepToPool();
+        item.transform.parent = m_poolablesHolder;
 
     }
 

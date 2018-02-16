@@ -5,21 +5,7 @@ using UnityEngine;
 
 public class RoadSegmentAgent : MonoBehaviour/*, IPoolable*/ {
     
-    /*
-    public void AwakeFromPool()
-    {
-        //here decide obstacles and load them from pools
-        gameObject.SetActive(true);
-    }
-
-    public void SleepToPool()
-    {
-        gameObject.SetActive(false);
-
-        //here send this road obstacles to obstacles pool
-    }
-
-    */
+    
 
    public void AwakeSegment ()
     {
@@ -28,10 +14,37 @@ public class RoadSegmentAgent : MonoBehaviour/*, IPoolable*/ {
         if (OnResetRoadSegment != null) { 
             OnResetRoadSegment(this);
         }
+
+        ReleaseRowAgents();
         gameObject.SetActive(true);
+        SetRowAgents();
+
         Debug.Log("---- ONE AWAKE SEGMENT");
     }
 
+
+    private void SetRowAgents ()
+    {
+        float step = m_references.m_mainSurface.localScale.z / m_currentRowsPerSegment;
+
+        for (int i = 0; i < m_currentRowsPerSegment; i++)
+        {
+            GameObject rowGO =  PoolsManager.Instance.m_rowAgents.AA_GetFromPool();
+            rowGO.transform.position = m_references.m_rowInitialAnchor.position + transform.forward * step * i;
+            rowGO.transform.parent = m_references.m_rowsHolder;
+            m_rows.Add(rowGO);
+           
+        }       
+    }
+
+    private void ReleaseRowAgents ()
+    {
+        foreach (GameObject item in m_rows)
+        {                      
+            PoolsManager.Instance.m_rowAgents.AA_SendToPool(item);
+        }
+        m_rows.Clear();
+    }
     private void OnEnable()
     {
         m_references.m_exitLstr.OnPlayerShipPass += AwakeSegment;
@@ -43,6 +56,18 @@ public class RoadSegmentAgent : MonoBehaviour/*, IPoolable*/ {
     }
 
 
+    [Header("Settings")]
+    [SerializeField]
+    int m_initialRowsPerSegment;
+
+
+
+    [Header("WatchOnly")]
+    [SerializeField]
+    int m_currentRowsPerSegment;
+    [SerializeField]
+    List<GameObject> m_rows;
+
     public 
     RoadSegmentAgentReferences m_references;
 
@@ -52,7 +77,13 @@ public class RoadSegmentAgent : MonoBehaviour/*, IPoolable*/ {
     {
         public LSTR_ShipEnters m_exitLstr;
         public Transform m_endpointAnchor;
+        public Transform m_rowInitialAnchor;
+        public Transform m_mainSurface;
+        public Transform m_rowsHolder;
     }
+    
+   
+
 
 
     public delegate void ResetRoadStement(RoadSegmentAgent sender);

@@ -20,10 +20,14 @@ public class RoadSegmentsManager : MonoBehaviour {
 
     void PutLastInPosition ()
     {
+        if (m_roadSegmentAgents.Count <= 1)
+            return;
         Transform rsaToMove = m_roadSegmentAgents[m_roadSegmentAgents.Count - 1].transform;
 
         Vector3 offset = m_roadSegmentAgents[m_roadSegmentAgents.Count - 2].m_references.m_endpointAnchor.position - rsaToMove.position;
         rsaToMove.position += offset;
+
+
        // Debug.Log("--- element " + newRSA.name + " uses as base " + m_roadSegmentAgents[m_roadSegmentAgents.Count - 1].name);
     }
 
@@ -54,13 +58,7 @@ public class RoadSegmentsManager : MonoBehaviour {
             m_roadSegmentAgents.Add(newRSA);
 
             newRSA.OnResetRoadSegment += ResetRSA;
-
-            if (i > 0)
-            {
-                PutLastInPosition();
-            }
-
-            
+            newRSA.AwakeSegment();                   
 
         }
 

@@ -30,7 +30,7 @@ public class GameController : MonoBehaviour {
             XRSettings.enabled = false;
             XRDevice.DisableAutoXRCameraTracking(Camera.main, true);
         }
-          
+        PoolsManager.Instance.testSingleton();
     }
 
     private void Awake()
