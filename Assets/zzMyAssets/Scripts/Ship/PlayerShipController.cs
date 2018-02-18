@@ -13,9 +13,13 @@ public class PlayerShipController : MonoBehaviour {
         m_states.m_current.Enter();
     }
 
+    public void SM_GoToStall ()
+    {
+        SM_GoToState(m_states.m_stall);
+    }
     #endregion
 
-    #region ship behaviours
+    #region ship behaviours (to be called from states)
     public void AA_AddLateralForce()
     {
         float absoluteTilt = Mathf.Abs(m_references.m_meshHolder.rotation.z);
@@ -48,7 +52,6 @@ public class PlayerShipController : MonoBehaviour {
         m_references.m_rigidbody.AddForce(forceDirection * forceFactor, ForceMode.Force);
 
     }
-
     public void AA_AddForwardForce()
     {
         if (m_references.m_rigidbody.velocity.z >= m_forwardMaxVelocity)
@@ -57,7 +60,32 @@ public class PlayerShipController : MonoBehaviour {
 
         //Debug.Log("---> " + m_references.m_rigidbody.velocity);
     }
+    public bool AA_IsHoveringRoad ()
+    {
+        Ray ray = new Ray(transform.position, Vector3.down);
+        Debug.DrawLine(transform.position, transform.position + Vector3.down*5, Color.red, Time.deltaTime);
+       
+        RaycastHit hit;
+        //if (Physics.Raycast(transform.position, transform.position + Vector3.down*5, out hit, m_nonHoverableSurfaces))
+        if (Physics.Raycast (ray, out hit, 1, m_nonHoverableSurfaces))
+        {
+            if (hit.collider.tag == "RoadSurface")
+            {
+                return true;
+            } 
+            Debug.Log("-- hit another stuff " + hit.collider.name);
 
+            return false;
+        }
+
+        Debug.Log("-- hit nothing");
+        return false;
+    }
+    public void AA_SetShipToStall()
+    {
+        m_references.m_rigidbody.useGravity = true;
+        m_references.m_rigidbody.constraints = RigidbodyConstraints.None;
+    }
     #endregion
 
     private void Update()
@@ -75,6 +103,7 @@ public class PlayerShipController : MonoBehaviour {
         m_states.m_disabled = ScriptableObject.CreateInstance<PSS_Disabled>().Init(this) as PSS_Disabled;
         m_states.m_waiting = ScriptableObject.CreateInstance<PSS_Waiting>().Init(this) as PSS_Waiting;
         m_states.m_running = ScriptableObject.CreateInstance<PSS_Running>().Init(this) as PSS_Running;
+        m_states.m_stall = ScriptableObject.CreateInstance<PSS_Stall>().Init(this) as PSS_Stall;
 
         m_states.m_current = m_states.m_disabled;
 
@@ -98,7 +127,7 @@ public class PlayerShipController : MonoBehaviour {
     public float m_lateralMaxVelocity = 2;
     public float m_forwardAccel = 1f;
     public float m_forwardMaxVelocity = 10;
-
+    public LayerMask m_nonHoverableSurfaces;
     public PlayerShipControllerStates m_states;
     
     public PlayerShipControllerReferences m_references;
@@ -131,6 +160,7 @@ public class PlayerShipController : MonoBehaviour {
         public PSS_Disabled m_disabled;
         public PSS_Waiting m_waiting;
         public PSS_Running m_running;
+        public PSS_Stall m_stall;
     }
 
     [System.Serializable]

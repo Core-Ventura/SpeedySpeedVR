@@ -5,6 +5,20 @@ using UnityEngine.XR;
 
 public class GameController : MonoBehaviour {
 
+    #region state management
+    private void SM_GoToState (GCS_GameControllerState newState)
+    {
+        m_states.m_current.Exit();
+        m_states.m_current = newState;
+        m_states.m_current.Enter();
+    }
+
+    public void SM_GoToScoreMenu()
+    {
+        SM_GoToState(m_states.m_inScoreMenu);
+    }
+    #endregion
+
 
     public void AA_UpdateRotationAnchor (Quaternion _newRotation)
     {
@@ -35,7 +49,11 @@ public class GameController : MonoBehaviour {
 
     private void Awake()
     {
-       
+        m_states.m_inMainMenu = ScriptableObject.CreateInstance<GCS_InMainMenu>().Init(this) as GCS_InMainMenu;
+        m_states.m_inGameplay = ScriptableObject.CreateInstance<GCS_InGameplay>().Init(this) as GCS_InGameplay;
+        m_states.m_inScoreMenu = ScriptableObject.CreateInstance<GCS_InScoreMenu>().Init(this) as GCS_InScoreMenu;
+
+        m_states.m_current = m_states.m_inGameplay;
     }
 
     [Header("Settings")]
@@ -50,9 +68,21 @@ public class GameController : MonoBehaviour {
     
     public Transform m_mainCameraHolder;
 
+    [SerializeField]
+    GameControllerStates m_states;
+
     [System.Serializable]
     public class GameControllerReferences
     {
         public Transform m_rotationAnchor;
+    }
+
+    [System.Serializable]
+    public class GameControllerStates
+    {
+        public GCS_GameControllerState m_current;
+        public GCS_InMainMenu m_inMainMenu;
+        public GCS_InGameplay m_inGameplay;
+        public GCS_InScoreMenu m_inScoreMenu;
     }
 }

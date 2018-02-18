@@ -30,7 +30,7 @@ public class PoolsManager : Singleton <PoolsManager>
     {
         
 
-        Debug.Log("ENDENDENDENDENDENDEND");
+        //Debug.Log("ENDENDENDENDENDENDEND");
     }
 
 

@@ -19,7 +19,7 @@ public class RoadSegmentAgent : MonoBehaviour/*, IPoolable*/ {
         gameObject.SetActive(true);
         SetRowAgents();
 
-        Debug.Log("---- ONE AWAKE SEGMENT");
+        //Debug.Log("---- ONE AWAKE SEGMENT");
     }
 
 

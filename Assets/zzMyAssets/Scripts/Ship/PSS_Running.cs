@@ -27,6 +27,11 @@ public class PSS_Running : PSS_PlayerShipState
     {
         m_target.m_gamecontroller.m_mainCameraHolder.transform.position = m_target.m_references.m_cameraAnchor.transform.position;
         m_target.m_references.m_meshHolder.transform.localRotation = m_target.m_gamecontroller.m_references.m_rotationAnchor.transform.localRotation;
+        
+        if (!m_target.AA_IsHoveringRoad())
+        {
+            m_target.SM_GoToStall();
+        } 
     }
 
 
