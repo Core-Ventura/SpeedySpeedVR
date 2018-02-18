@@ -32,6 +32,9 @@ public class Pool : ScriptableObject  {
         m_container.Add(item);
         poolable.SleepToPool();
         item.transform.parent = m_poolablesHolder;
+        item.transform.localPosition = Vector3.zero;
+
+        
 
     }
 

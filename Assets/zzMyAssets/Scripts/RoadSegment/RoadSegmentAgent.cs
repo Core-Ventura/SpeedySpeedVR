@@ -40,8 +40,10 @@ public class RoadSegmentAgent : MonoBehaviour/*, IPoolable*/ {
     private void ReleaseRowAgents ()
     {
         foreach (GameObject item in m_rows)
-        {                      
+        {
+            item.GetComponent<RowAgent>().SleepToPool();
             PoolsManager.Instance.m_rowAgents.AA_SendToPool(item);
+            
         }
         m_rows.Clear();
     }

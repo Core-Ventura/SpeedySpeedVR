@@ -51,7 +51,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de47c11bc0460a04aa396e4e2a8d3123, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_numberOfSegments: 6
+  m_numberOfSegments: 1
   m_roadSegmentAgents: []
   m_stencils:
     m_roadSegmentAgent: {fileID: 114335959143658120, guid: 2e6db72aab325bb40b03f9cd3b235ead,

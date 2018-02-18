@@ -378,8 +378,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cba9df2dca8094e4581f2ffa8a161187, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_initialRowsPerSegment: 5
-  m_currentRowsPerSegment: 5
+  m_initialRowsPerSegment: 4
+  m_currentRowsPerSegment: 4
   m_rows: []
   m_references:
     m_exitLstr: {fileID: 114229234655228688}

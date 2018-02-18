@@ -2401,7 +2401,7 @@ Prefab:
     - target: {fileID: 114645556150783584, guid: f94ade1a87a1bc94c8a6e13c3c8514f6,
         type: 2}
       propertyPath: m_numberOfSegments
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f94ade1a87a1bc94c8a6e13c3c8514f6, type: 2}

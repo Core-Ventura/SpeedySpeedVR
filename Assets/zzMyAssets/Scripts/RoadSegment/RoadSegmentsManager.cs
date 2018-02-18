@@ -13,7 +13,7 @@ public class RoadSegmentsManager : MonoBehaviour {
 
         m_roadSegmentAgents.Add(_rsa);
         PutLastInPosition();
-       
+        Debug.Log("---RESET RSA");
     }
 
 

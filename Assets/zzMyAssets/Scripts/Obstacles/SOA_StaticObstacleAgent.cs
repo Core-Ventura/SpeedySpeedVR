@@ -5,13 +5,20 @@ using UnityEngine;
 
 public class SOA_StaticObstacleAgent : MonoBehaviour, IPoolable
 {
+
+
+
     public void AwakeFromPool()
     {
-        //throw new NotImplementedException();
+        gameObject.SetActive(true);
+
+
     }
 
     public void SleepToPool()
     {
-        //throw new NotImplementedException();
+        gameObject.SetActive(false);
+
+
     }
 }
