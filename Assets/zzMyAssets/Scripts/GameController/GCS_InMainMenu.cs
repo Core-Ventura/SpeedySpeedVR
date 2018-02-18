@@ -1,16 +1,20 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GCS_InMainMenu : GCS_GameControllerState {
+public class GCS_InMainMenu : GCS_GameControllerState
+{
+    public override void Enter()
+    {
+       
+    }
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    public override void Exit()
+    {
+    }
+
+    public override void Update()
+    {
+    }
 }

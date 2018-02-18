@@ -7,6 +7,8 @@ public class InputControllerMouse : MonoBehaviour {
 
     public void Update()
     {
+
+        #region rotation tracking
         Vector3 mouseCurrentPosition = Input.mousePosition;
         Vector3 mouseDelta = mouseCurrentPosition - m_mouseLastPosition;
         
@@ -15,6 +17,14 @@ public class InputControllerMouse : MonoBehaviour {
 
 
         m_mouseLastPosition = mouseCurrentPosition;
+        #endregion
+
+        if (Input.GetMouseButton(0))
+        {
+            m_gameController.IL_MainClick();
+        }
+
+
     }
     private void Awake()
     {

@@ -7,6 +7,7 @@ public class PSS_Running : PSS_PlayerShipState
 {
     public override void Enter()
     {
+        m_lastPosition = m_target.transform.position;
     }
 
     public override void Exit()
@@ -27,13 +28,24 @@ public class PSS_Running : PSS_PlayerShipState
     {
         m_target.m_gamecontroller.m_mainCameraHolder.transform.position = m_target.m_references.m_cameraAnchor.transform.position;
         m_target.m_references.m_meshHolder.transform.localRotation = m_target.m_gamecontroller.m_references.m_rotationAnchor.transform.localRotation;
-        
+
+        Vector3 currentPosition = m_target.transform.position;
+        float deltaDistance = currentPosition.z - m_lastPosition.z;
+        m_target.m_totalDistance += deltaDistance;
+
+        m_lastPosition = currentPosition;
+
         if (!m_target.AA_IsHoveringRoad())
         {
             m_target.SM_GoToStall();
         } 
+
+
+
     }
 
+
+    Vector3 m_lastPosition;
 
 
 }

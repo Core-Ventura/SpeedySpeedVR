@@ -129,10 +129,17 @@ public class PlayerShipController : MonoBehaviour {
     public float m_forwardMaxVelocity = 10;
     public LayerMask m_nonHoverableSurfaces;
     public PlayerShipControllerStates m_states;
-    
+
+
+    [Header("Others")]
+    public float m_totalDistance = 0;
+
     public PlayerShipControllerReferences m_references;
 
     public PlayerShipControllerStencils m_stencils;
+
+
+
     [HideInInspector]
     public GameController m_gamecontroller;
 

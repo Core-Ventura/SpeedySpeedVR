@@ -8,7 +8,7 @@ public class PSS_Stall : PSS_PlayerShipState
     public override void Enter()
     {
         m_target.AA_SetShipToStall();
-        m_gameController.SM_GoToScoreMenu();
+        m_gameController.SM_GoToScoreMenu(m_target.m_totalDistance);
         
     }
 

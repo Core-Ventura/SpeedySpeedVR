@@ -13,13 +13,26 @@ public class GameController : MonoBehaviour {
         m_states.m_current.Enter();
     }
 
-    public void SM_GoToScoreMenu()
+    public void SM_GoToScoreMenu(float scoreToShow)
     {
+        m_references.m_scoreMenuController.AA_SetScoreText(scoreToShow);
         SM_GoToState(m_states.m_inScoreMenu);
+    }
+    public void SM_GoToMainMenu ()
+    {
+        SM_GoToState(m_states.m_inMainMenu);
     }
     #endregion
 
+    #region input listeners
 
+    public void IL_MainClick ()
+    {
+        if (OnMainClick != null)
+            OnMainClick();
+    }
+
+    #endregion
     public void AA_UpdateRotationAnchor (Quaternion _newRotation)
     {
         Quaternion newRotation = new Quaternion(m_references.m_rotationAnchor.localRotation.x, m_references.m_rotationAnchor.localRotation.y, _newRotation.z, m_references.m_rotationAnchor.localRotation.w);
@@ -59,6 +72,8 @@ public class GameController : MonoBehaviour {
     [Header("Settings")]
     [SerializeField]
     float m_maxTilt = 60f;
+    [SerializeField]
+    float m_distanceToGuis = 1;
 
     [SerializeField]
     bool m_runNonStereo = false;
@@ -71,10 +86,18 @@ public class GameController : MonoBehaviour {
     [SerializeField]
     GameControllerStates m_states;
 
+
+
+
+    public delegate void MainClickAction();
+    public event MainClickAction OnMainClick;
+
+
     [System.Serializable]
     public class GameControllerReferences
     {
         public Transform m_rotationAnchor;
+        public ScoreMenuController m_scoreMenuController;
     }
 
     [System.Serializable]
