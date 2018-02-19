@@ -10,6 +10,11 @@ public class InputController : MonoBehaviour {
     {
         //m_gameController.m_references.m_rotationAnchor.localRotation = InputTracking.GetLocalRotation(XRNode.CenterEye);
         m_gameController.AA_UpdateRotationAnchor(InputTracking.GetLocalRotation(XRNode.CenterEye));
+
+
+        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
+            m_gameController.IL_MainClick();
+
     }
 
 
