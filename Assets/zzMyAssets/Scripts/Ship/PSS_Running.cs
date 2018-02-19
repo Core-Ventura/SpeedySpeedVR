@@ -8,6 +8,10 @@ public class PSS_Running : PSS_PlayerShipState
     public override void Enter()
     {
         m_lastPosition = m_target.transform.position;
+        m_target.transform.position = m_roadSegments.m_startAnchor.transform.position;
+        m_target.transform.rotation = m_roadSegments.m_startAnchor.transform.rotation;
+
+        m_target.AA_ResetShipStatus();
     }
 
     public override void Exit()
@@ -39,12 +43,14 @@ public class PSS_Running : PSS_PlayerShipState
         {
             m_target.SM_GoToStall();
         } 
-
-
-
     }
 
+    private void Awake()
+    {
+        m_roadSegments = FindObjectOfType<RoadSegmentsManager>();
+    }
 
+    RoadSegmentsManager m_roadSegments;
     Vector3 m_lastPosition;
 
 

@@ -7,6 +7,7 @@ public class GCS_InGameplay : GCS_GameControllerState
 {
     public override void Enter()
     {
+        m_target.m_playerShip.SM_GoToRunning();
     }
 
     public override void Exit()

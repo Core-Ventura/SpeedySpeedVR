@@ -17,6 +17,16 @@ public class PlayerShipController : MonoBehaviour {
     {
         SM_GoToState(m_states.m_stall);
     }
+
+    public void SM_GoToDisabled()
+    {
+        SM_GoToState(m_states.m_disabled);
+    }
+
+    public void SM_GoToRunning ()
+    {
+        SM_GoToState(m_states.m_running);
+    }
     #endregion
 
     #region ship behaviours (to be called from states)
@@ -86,6 +96,16 @@ public class PlayerShipController : MonoBehaviour {
         m_references.m_rigidbody.useGravity = true;
         m_references.m_rigidbody.constraints = RigidbodyConstraints.None;
     }
+    public void AA_ResetShipStatus ()
+    {
+        m_totalDistance = 0;
+        gameObject.SetActive(true);
+        m_references.m_rigidbody.useGravity = false;
+        m_references.m_rigidbody.velocity = Vector3.zero;
+        m_references.m_rigidbody.angularVelocity = Vector3.zero;
+        m_references.m_rigidbody.constraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePositionY;
+
+    }
     #endregion
 
     private void Update()
@@ -110,7 +130,7 @@ public class PlayerShipController : MonoBehaviour {
         m_gamecontroller = FindObjectOfType<GameController>();
 
 
-        m_states.m_current = m_states.m_running;
+        SM_GoToDisabled();
         //m_states.m_current = m_states.m_waiting;
     }
 

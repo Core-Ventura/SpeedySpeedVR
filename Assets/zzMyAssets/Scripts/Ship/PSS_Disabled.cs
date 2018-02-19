@@ -8,6 +8,8 @@ public class PSS_Disabled : PSS_PlayerShipState
 
     public override void Enter()
     {
+        Debug.Log("----->" + m_target.gameObject.name);
+        m_target.gameObject.SetActive(false);
     }
 
     public override void Exit()
@@ -16,7 +18,6 @@ public class PSS_Disabled : PSS_PlayerShipState
 
     public override void FixedUpdate()
     {
-        throw new NotImplementedException();
     }
 
     public override void Update()

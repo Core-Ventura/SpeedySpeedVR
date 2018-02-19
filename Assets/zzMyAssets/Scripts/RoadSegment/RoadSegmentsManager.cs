@@ -32,6 +32,14 @@ public class RoadSegmentsManager : MonoBehaviour {
     }
 
 
+    public void AA_ReplaceAllSegments ()
+    {
+        m_roadSegmentAgents[0].transform.position = Vector3.zero;
+        for (int i = 1; i <m_roadSegmentAgents.Count; i ++)
+        {
+            m_roadSegmentAgents[i].transform.position = m_roadSegmentAgents[i - 1].m_references.m_endpointAnchor.transform.position;
+        }
+    }
     private void OnEnable()
     {
         foreach (RoadSegmentAgent item in m_roadSegmentAgents)
@@ -69,13 +77,12 @@ public class RoadSegmentsManager : MonoBehaviour {
     [Header("Settings")]
     [SerializeField]
     int m_numberOfSegments;
-
+    public Transform m_startAnchor;
     
     public List<RoadSegmentAgent> m_roadSegmentAgents;
 
 
-    [SerializeField]
-    RoadSegmentManagerStencil m_stencils;
+    public RoadSegmentManagerStencil m_stencils;
 
     [System.Serializable]
     public class RoadSegmentManagerStencil

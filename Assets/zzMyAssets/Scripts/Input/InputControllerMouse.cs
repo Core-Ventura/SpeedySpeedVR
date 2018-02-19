@@ -19,7 +19,7 @@ public class InputControllerMouse : MonoBehaviour {
         m_mouseLastPosition = mouseCurrentPosition;
         #endregion
 
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButtonDown(0))
         {
             m_gameController.IL_MainClick();
         }

@@ -8,7 +8,8 @@ public class GameController : MonoBehaviour {
     #region state management
     private void SM_GoToState (GCS_GameControllerState newState)
     {
-        m_states.m_current.Exit();
+        if (m_states.m_current != null)
+            m_states.m_current.Exit();
         m_states.m_current = newState;
         m_states.m_current.Enter();
     }
@@ -18,9 +19,18 @@ public class GameController : MonoBehaviour {
         m_references.m_scoreMenuController.AA_SetScoreText(scoreToShow);
         SM_GoToState(m_states.m_inScoreMenu);
     }
+
     public void SM_GoToMainMenu ()
     {
+        Debug.Log("---GO TO MAIN MENU---");
         SM_GoToState(m_states.m_inMainMenu);
+    }
+
+    public void SM_GoToGameplay()
+    {
+        m_roadSegmentManager.AA_ReplaceAllSegments();
+        Debug.Log("---GO TO GAMEPLAY---");
+        SM_GoToState(m_states.m_inGameplay);
     }
     #endregion
 
@@ -62,11 +72,17 @@ public class GameController : MonoBehaviour {
 
     private void Awake()
     {
+        m_playerShip = FindObjectOfType<PlayerShipController>();
+        m_roadSegmentManager = FindObjectOfType<RoadSegmentsManager>();
+
         m_states.m_inMainMenu = ScriptableObject.CreateInstance<GCS_InMainMenu>().Init(this) as GCS_InMainMenu;
         m_states.m_inGameplay = ScriptableObject.CreateInstance<GCS_InGameplay>().Init(this) as GCS_InGameplay;
         m_states.m_inScoreMenu = ScriptableObject.CreateInstance<GCS_InScoreMenu>().Init(this) as GCS_InScoreMenu;
 
-        m_states.m_current = m_states.m_inGameplay;
+        m_references.m_mainMenuController.AA_HideMenu();
+        m_references.m_scoreMenuController.AA_HideMenu();
+        //m_states.m_current = m_states.m_inGameplay;
+        SM_GoToMainMenu();
     }
 
     [Header("Settings")]
@@ -86,9 +102,9 @@ public class GameController : MonoBehaviour {
     [SerializeField]
     GameControllerStates m_states;
 
-
-
-
+    [HideInInspector]
+    public  PlayerShipController m_playerShip;
+    RoadSegmentsManager m_roadSegmentManager;
     public delegate void MainClickAction();
     public event MainClickAction OnMainClick;
 
@@ -98,6 +114,7 @@ public class GameController : MonoBehaviour {
     {
         public Transform m_rotationAnchor;
         public ScoreMenuController m_scoreMenuController;
+        public SimpleMenuController m_mainMenuController;
     }
 
     [System.Serializable]
