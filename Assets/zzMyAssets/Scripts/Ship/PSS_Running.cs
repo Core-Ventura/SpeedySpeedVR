@@ -7,10 +7,11 @@ public class PSS_Running : PSS_PlayerShipState
 {
     public override void Enter()
     {
-        m_lastPosition = m_target.transform.position;
+        
         m_target.transform.position = m_roadSegments.m_startAnchor.transform.position;
         m_target.transform.rotation = m_roadSegments.m_startAnchor.transform.rotation;
 
+        m_lastPosition = m_target.transform.position;
         m_target.AA_ResetShipStatus();
     }
 
@@ -42,7 +43,9 @@ public class PSS_Running : PSS_PlayerShipState
         if (!m_target.AA_IsHoveringRoad())
         {
             m_target.SM_GoToStall();
-        } 
+        }
+
+        Debug.Log(m_target.m_totalDistance);
     }
 
     private void Awake()

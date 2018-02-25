@@ -99,6 +99,7 @@ public class PlayerShipController : MonoBehaviour {
     public void AA_ResetShipStatus ()
     {
         m_totalDistance = 0;
+        
         gameObject.SetActive(true);
         m_references.m_rigidbody.useGravity = false;
         m_references.m_rigidbody.velocity = Vector3.zero;
