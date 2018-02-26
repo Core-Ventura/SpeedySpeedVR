@@ -49,6 +49,8 @@ public class PoolsManager : Singleton <PoolsManager>
     {
         //  public GameObject m_roadSegment;
         public SOA_StaticObstacleAgent m_staticObstacle;
+
+
         public RowAgent m_rowAgent;
         
     }
