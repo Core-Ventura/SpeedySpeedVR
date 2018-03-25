@@ -8,14 +8,14 @@ public class SOA_StaticObstacleAgent : MonoBehaviour, IPoolable
 
 
 
-    public void AwakeFromPool()
+    public virtual void AwakeFromPool()
     {
         gameObject.SetActive(true);
 
 
     }
 
-    public void SleepToPool()
+    public virtual void SleepToPool()
     {
         gameObject.SetActive(false);
 

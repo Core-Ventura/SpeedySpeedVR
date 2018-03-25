@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - RoadSurface
+  - Obstacle
   layers:
   - Default
   - TransparentFX

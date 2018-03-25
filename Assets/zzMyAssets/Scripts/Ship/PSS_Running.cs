@@ -45,7 +45,7 @@ public class PSS_Running : PSS_PlayerShipState
             m_target.SM_GoToStall();
         }
 
-        Debug.Log(m_target.m_totalDistance);
+        //Debug.Log(m_target.m_totalDistance);
     }
 
     private void Awake()
