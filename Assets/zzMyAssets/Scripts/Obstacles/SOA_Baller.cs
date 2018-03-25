@@ -23,6 +23,7 @@ public class SOA_Baller : SOA_StaticObstacleAgent {
         base.AwakeFromPool();
         
         m_rotationSpeed = Random.Range(m_minimumSpeed, m_maximumSpeed) * (Random.Range(0, 2) * 2 - 1);
+        m_references.m_rotator.Rotate(new Vector3 (0,Random.Range(0, m_maximumInitialOffset) * (Random.Range(0, 2) * 2 - 1),0));
     }
 
     #region envent handlers
