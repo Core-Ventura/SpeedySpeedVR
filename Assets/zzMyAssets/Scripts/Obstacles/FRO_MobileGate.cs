@@ -11,7 +11,7 @@ public class FRO_MobileGate : MonoBehaviour {
 
         float normalizedStart = Random.Range(0f, 1f);
         
-        Debug.Log(" started at " + normalizedStart.ToString("N5"));
+        //Debug.Log(" started at " + normalizedStart.ToString("N5"));
         m_animator.Play("PingPong", -1, normalizedStart);
     }
 

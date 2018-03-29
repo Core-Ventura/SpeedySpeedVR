@@ -8,7 +8,7 @@ public class SOA_Baller : SOA_StaticObstacleAgent {
 
     private void Start()
     {
-        AwakeFromPool();
+       // AwakeFromPool();  //this is for development testing only
     }
 
 

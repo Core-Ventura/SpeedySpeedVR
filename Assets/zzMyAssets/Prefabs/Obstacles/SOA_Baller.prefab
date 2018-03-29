@@ -72,7 +72,7 @@ GameObject:
   - component: {fileID: 4325956668863324}
   - component: {fileID: 114691001658538836}
   m_Layer: 0
-  m_Name: SOA_Type02
+  m_Name: SOA_Baller
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -22,14 +22,14 @@ public class GameController : MonoBehaviour {
 
     public void SM_GoToMainMenu ()
     {
-        Debug.Log("---GO TO MAIN MENU---");
+        //Debug.Log("---GO TO MAIN MENU---");
         SM_GoToState(m_states.m_inMainMenu);
     }
 
     public void SM_GoToGameplay()
     {
         m_roadSegmentManager.AA_ReplaceAllSegments();
-        Debug.Log("---GO TO GAMEPLAY---");
+        //Debug.Log("---GO TO GAMEPLAY---");
         SM_GoToState(m_states.m_inGameplay);
     }
     #endregion
