@@ -31,6 +31,7 @@ public class SOA_Bubble : SOA_StaticObstacleAgent
 
         float pushForce = m_randomForces[Random.Range(0, m_randomForces.Length - 1)] * (Random.Range (0,2) * 2 -1);
         m_targetRigidbody.AddForce(m_targetRigidbody.transform.right * pushForce, ForceMode.Impulse);
+        m_references.m_pushAudioSource.Play();
         Debug.Log("----pushed X " + pushForce);
         m_armed = false;
     }
@@ -92,5 +93,6 @@ public class SOA_Bubble : SOA_StaticObstacleAgent
         
         public Animator m_bubbleAnimator;
         public LSTR_PhysicsEvents m_listener;
+        public AudioSource m_pushAudioSource;
     }
 }
