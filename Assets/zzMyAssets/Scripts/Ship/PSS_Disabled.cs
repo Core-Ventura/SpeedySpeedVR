@@ -10,6 +10,7 @@ public class PSS_Disabled : PSS_PlayerShipState
     {
         Debug.Log("----->" + m_target.gameObject.name);
         m_target.gameObject.SetActive(false);
+        m_target.m_references.m_audioEngine.Stop();
     }
 
     public override void Exit()

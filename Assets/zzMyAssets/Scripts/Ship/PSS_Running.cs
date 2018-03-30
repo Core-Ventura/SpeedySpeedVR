@@ -15,6 +15,8 @@ public class PSS_Running : PSS_PlayerShipState
 
         m_target.m_currentShield = m_target.m_maxShield;
         m_target.AA_ResetShipStatus();
+        m_target.m_references.m_audioEngine.Play();
+
     }
 
     public override void Exit()
@@ -32,7 +34,7 @@ public class PSS_Running : PSS_PlayerShipState
     }
     public override void OnCollisionEnter()
     {
-        Debug.Log("---XXXXXship collision at velocity " + m_target.m_lastUpdateVelocity + " ---");
+        //Debug.Log("---XXXXXship collision at velocity " + m_target.m_lastUpdateVelocity + " ---");
         m_target.AA_DrainShield(m_target.m_lastUpdateVelocity.z * 5f);
         if (m_target.m_currentShield <= 0 )
         {
@@ -60,6 +62,7 @@ public class PSS_Running : PSS_PlayerShipState
 
         #region call to target behaviours
         m_target.AA_RegenShield();
+        m_target.AA_UpdateEngineSoundSettings();
         #endregion
 
 

@@ -118,6 +118,11 @@ public class PlayerShipController : MonoBehaviour {
             //Debug.Log("----NOT REGENERATING SHIELD");
         }
     }
+    public void AA_UpdateEngineSoundSettings ()
+    {
+        float normalizedVolume = m_references.m_rigidbody.velocity.z / m_forwardMaxVelocity;
+        m_references.m_audioEngine.volume = normalizedVolume;
+    }
     public void AA_DrainShield (float drainThis)
     {
         m_currentShield -= drainThis * m_shieldDrainingFactor;
@@ -240,6 +245,7 @@ public class PlayerShipController : MonoBehaviour {
         public Rigidbody m_rigidbody;
 
         public Transform m_mainHudAnchor;
+        public AudioSource m_audioEngine;
     }
 
     [System.Serializable]
