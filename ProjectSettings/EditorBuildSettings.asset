@@ -4,4 +4,7 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/zzMyAssets/Scenes/WorkScene.unity
+    guid: ef61bb3c44a130b44b3e5c48c6fc9013
