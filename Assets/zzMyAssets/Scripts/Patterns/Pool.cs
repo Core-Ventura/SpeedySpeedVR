@@ -19,8 +19,10 @@ public class Pool : ScriptableObject  {
         if (m_container.Count == 0)
             AA_CreateItem();
 
-        GameObject item = m_container[0];
-        m_container.RemoveAt(0);
+        int itemToGet = Random.Range(0, m_container.Count - 1);
+
+        GameObject item = m_container[itemToGet];
+        m_container.RemoveAt(itemToGet);
         item.GetComponent<IPoolable>().AwakeFromPool();
         return item;
 

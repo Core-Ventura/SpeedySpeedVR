@@ -31,19 +31,32 @@ public class PSS_Running : PSS_PlayerShipState
  
     public override void Update()
     {
+        #region set auxiliar components position
         m_target.m_gamecontroller.m_mainCameraHolder.transform.position = m_target.m_references.m_cameraAnchor.transform.position;
         m_target.m_references.m_meshHolder.transform.localRotation = m_target.m_gamecontroller.m_references.m_rotationAnchor.transform.localRotation;
+        #endregion
 
+        #region update distance for score
         Vector3 currentPosition = m_target.transform.position;
         float deltaDistance = currentPosition.z - m_lastPosition.z;
         m_target.m_totalDistance += deltaDistance;
 
         m_lastPosition = currentPosition;
+        #endregion
 
+        #region call to target behaviours
+        m_target.AA_RegenShield();
+        #endregion
+
+
+        #region check for state changes
         if (!m_target.AA_IsHoveringRoad())
         {
             m_target.SM_GoToStall();
         }
+
+        #endregion
+
 
         //Debug.Log(m_target.m_totalDistance);
     }

@@ -19,7 +19,24 @@ public class PoolsManager : Singleton <PoolsManager>
         GameObject staticObstaclesHolder = new GameObject("StaticObstaclesHolder");
         staticObstaclesHolder.transform.parent = transform;
         m_staticObstacles.Init(staticObstaclesHolder.transform, m_stencils.m_staticObstacle.gameObject, 0);
+        for (int i = 0; i<m_startingStatic; i++)
+        {
+            GameObject newObstacle =  Instantiate(m_stencils.m_staticObstacle.gameObject);
+            m_staticObstacles.AA_SendToPool(newObstacle);
+         
+        }
 
+        for (int i = 0; i < m_startingBaller; i++)
+        {
+
+            m_staticObstacles.AA_SendToPool(Instantiate(m_stencils.m_soaBaller.gameObject));
+        }
+        for (int i = 0; i < m_startingBubble; i++)
+        {
+           
+            m_staticObstacles.AA_SendToPool(Instantiate(m_stencils.m_soaBubble.gameObject));
+
+        }
 
         m_rowAgents = ScriptableObject.CreateInstance<Pool>();
         GameObject rowagentsHolder = new GameObject("RowAgentsHolder");
@@ -33,7 +50,16 @@ public class PoolsManager : Singleton <PoolsManager>
         //Debug.Log("ENDENDENDENDENDENDEND");
     }
 
+    [Header("Settings")]
+    [SerializeField]
+    int m_startingStatic;
+    [SerializeField]
+    int m_startingBubble;
+    [SerializeField]
+    int m_startingBaller;
 
+
+    [Header ("Watch only")]
     public Pool m_staticObstacles;
     public Pool m_rowAgents;
 
@@ -49,6 +75,8 @@ public class PoolsManager : Singleton <PoolsManager>
     {
         //  public GameObject m_roadSegment;
         public SOA_StaticObstacleAgent m_staticObstacle;
+        public SOA_Baller m_soaBaller;
+        public SOA_Bubble m_soaBubble;
 
 
         public RowAgent m_rowAgent;

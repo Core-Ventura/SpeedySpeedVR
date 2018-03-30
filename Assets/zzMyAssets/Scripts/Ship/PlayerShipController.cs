@@ -76,16 +76,15 @@ public class PlayerShipController : MonoBehaviour {
         Debug.DrawLine(transform.position, transform.position + Vector3.down*5, Color.red, Time.deltaTime);
        
         RaycastHit hit;
-        //if (Physics.Raycast(transform.position, transform.position + Vector3.down*5, out hit, m_nonHoverableSurfaces))
         if (Physics.Raycast (ray, out hit, 1, m_nonHoverableSurfaces))
         {
-            if (hit.collider.tag == "RoadSurface")
-            {
+            //if (hit.collider.tag == "RoadSurface")
+            //{
                 return true;
-            } 
+          //  } 
             Debug.Log("-- hit another stuff " + hit.collider.name);
 
-            return false;
+            //ohreturn false;
         }
 
         Debug.Log("-- hit nothing");
@@ -106,6 +105,18 @@ public class PlayerShipController : MonoBehaviour {
         m_references.m_rigidbody.angularVelocity = Vector3.zero;
         m_references.m_rigidbody.constraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePositionY;
 
+    }
+    public void AA_RegenShield ()
+    {
+        
+        if (m_currentShield < m_maxShield)
+        {
+            m_currentShield = Mathf.Clamp(m_currentShield + Time.deltaTime * m_shieldRegenerationRate, 0, m_maxShield) ;
+            Debug.Log("---REGENERATING SHIELD----");
+        } else
+        {
+            Debug.Log("----NOT REGENERATING SHIELD");
+        }
     }
     #endregion
 
@@ -148,6 +159,17 @@ public class PlayerShipController : MonoBehaviour {
     public float m_lateralMaxVelocity = 2;
     public float m_forwardAccel = 1f;
     public float m_forwardMaxVelocity = 10;
+    public float m_maxShield = 0;
+    [SerializeField]
+    float m_shieldRegenerationRate = 0;
+
+    
+    public float m_currentShield = 0;
+
+
+
+    
+
     public LayerMask m_nonHoverableSurfaces;
     public PlayerShipControllerStates m_states;
 

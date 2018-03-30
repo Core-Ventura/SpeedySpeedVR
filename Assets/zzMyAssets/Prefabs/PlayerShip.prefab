@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 65295979632167018}
   m_Layer: 0
   m_Name: Cube (3)
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -39,7 +39,7 @@ GameObject:
   - component: {fileID: 4734437964733838}
   m_Layer: 0
   m_Name: FX
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -120,7 +120,7 @@ GameObject:
   - component: {fileID: 23521642787752862}
   m_Layer: 0
   m_Name: Sphere
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -169,7 +169,7 @@ GameObject:
   - component: {fileID: 65249723631814910}
   m_Layer: 0
   m_Name: Cube (2)
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -184,7 +184,7 @@ GameObject:
   - component: {fileID: 4407425683557484}
   m_Layer: 0
   m_Name: 3D
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -216,7 +216,7 @@ GameObject:
   - component: {fileID: 4895354604423286}
   m_Layer: 0
   m_Name: Anchors
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -231,7 +231,7 @@ GameObject:
   - component: {fileID: 4700310569770974}
   m_Layer: 0
   m_Name: Placeholders
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -248,7 +248,7 @@ GameObject:
   - component: {fileID: 23890904354230038}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -382,7 +382,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1587859054480010}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: 0.814}
+  m_LocalPosition: {x: -12.47, y: 0.5, z: -12.85}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4895354604423286}
@@ -1073,6 +1073,9 @@ MonoBehaviour:
   m_lateralMaxVelocity: 2
   m_forwardAccel: 1
   m_forwardMaxVelocity: 6
+  m_maxShield: 100
+  m_shieldRegenerationRate: 5
+  m_currentShield: 0
   m_nonHoverableSurfaces:
     serializedVersion: 2
     m_Bits: 256
@@ -1082,6 +1085,7 @@ MonoBehaviour:
     m_waiting: {fileID: 0}
     m_running: {fileID: 0}
     m_stall: {fileID: 0}
+  m_totalDistance: 0
   m_references:
     m_cameraAnchor: {fileID: 4983576125637048}
     m_meshHolder: {fileID: 4407425683557484}

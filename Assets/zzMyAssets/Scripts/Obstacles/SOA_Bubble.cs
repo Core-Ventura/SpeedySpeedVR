@@ -12,7 +12,7 @@ public class SOA_Bubble : SOA_StaticObstacleAgent
         gameObject.SetActive(true);
         m_armed = false;
         if (m_targetRigidbody == null)
-            m_targetRigidbody = GameObject.FindGameObjectWithTag("Player").GetComponentInParent<Rigidbody>();
+            m_targetRigidbody = FindObjectOfType<GameController>().m_playerShip.m_references.m_rigidbody;// GameObject.FindGameObjectWithTag("Player").GetComponentInParent<Rigidbody>();
 
         #endregion
 
@@ -64,7 +64,7 @@ public class SOA_Bubble : SOA_StaticObstacleAgent
     } 
     private void Start()
     {
-        AwakeFromPool();
+        //AwakeFromPool();
     }
 
 
@@ -79,6 +79,7 @@ public class SOA_Bubble : SOA_StaticObstacleAgent
     [SerializeField]
     bool m_armed = false;
     float m_pushTime;
+
     [SerializeField]
     Rigidbody m_targetRigidbody;
 

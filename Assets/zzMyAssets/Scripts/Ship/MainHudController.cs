@@ -10,6 +10,7 @@ public class MainHudController : MonoBehaviour {
         
         m_references.m_speedSlider.value = m_references.m_playerShip.m_references.m_rigidbody.velocity.z / m_references.m_playerShip.m_forwardMaxVelocity;
         AA_UpdateLateralSpeedDisplay();
+        AA_UpdateShieldDisplay ();
     }
 
 
@@ -25,6 +26,12 @@ public class MainHudController : MonoBehaviour {
         {
             m_references.m_lateralSpeedSlider.value = normalizedSpeed / 2 + .5f;
         }        
+    }
+
+    private void AA_UpdateShieldDisplay ()
+    {
+        float normalizedShield = m_references.m_playerShip.m_currentShield / m_references.m_playerShip.m_maxShield;
+        m_references.m_shieldSlider.value = normalizedShield;
     }
 
     private void AA_UpdateDisplayForceLeft ()
@@ -86,6 +93,7 @@ public class MainHudController : MonoBehaviour {
 
         public Slider m_speedSlider;
         public Slider m_lateralSpeedSlider;
+        public Slider m_shieldSlider;
         public Image m_lateralSpeedReporter;
     }
 }
