@@ -109,26 +109,42 @@ public class PlayerShipController : MonoBehaviour {
     public void AA_RegenShield ()
     {
         
-        if (m_currentShield < m_maxShield)
+        if (m_currentShield < m_maxShield && m_references.m_rigidbody.velocity.z > 0)
         {
             m_currentShield = Mathf.Clamp(m_currentShield + Time.deltaTime * m_shieldRegenerationRate, 0, m_maxShield) ;
-            Debug.Log("---REGENERATING SHIELD----");
+            //Debug.Log("---REGENERATING SHIELD----");
         } else
         {
-            Debug.Log("----NOT REGENERATING SHIELD");
+            //Debug.Log("----NOT REGENERATING SHIELD");
         }
+    }
+    public void AA_DrainShield (float drainThis)
+    {
+        m_currentShield -= drainThis * m_shieldDrainingFactor;
+
     }
     #endregion
 
-    private void Update()
+
+    #region physics
+    private void OnCollisionEnter(Collision collision)
     {
-        m_states.m_current.Update();
+        m_states.m_current.OnCollisionEnter();
+        
     }
 
     private void FixedUpdate()
     {
         m_states.m_current.FixedUpdate();
     }
+    #endregion
+    private void Update()
+    {
+        m_states.m_current.Update();
+        m_lastUpdateVelocity = m_references.m_rigidbody.velocity;
+    }
+
+
     private void Awake()
     {
         //m_states.m_disabled = ScriptableObject.CreateInstance<PSS_Disabled>().Init(this);
@@ -160,22 +176,25 @@ public class PlayerShipController : MonoBehaviour {
     public float m_forwardAccel = 1f;
     public float m_forwardMaxVelocity = 10;
     public float m_maxShield = 0;
+    public float m_shieldDrainingFactor = 0;
     [SerializeField]
     float m_shieldRegenerationRate = 0;
-
-    
-    public float m_currentShield = 0;
-
-
-
-    
-
     public LayerMask m_nonHoverableSurfaces;
+    
+
+    [Header("Watch only")]
+    public float m_currentShield = 0;
+    public float m_totalDistance = 0;
+
+
+
+
+    
     public PlayerShipControllerStates m_states;
 
 
-    [Header("Others")]
-    public float m_totalDistance = 0;
+    
+    
 
     public PlayerShipControllerReferences m_references;
 
@@ -185,8 +204,8 @@ public class PlayerShipController : MonoBehaviour {
 
     [HideInInspector]
     public GameController m_gamecontroller;
-
-
+    [HideInInspector]
+    public Vector3 m_lastUpdateVelocity;
 
 
 

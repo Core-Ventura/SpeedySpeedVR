@@ -29,7 +29,7 @@ public class SOA_Baller : SOA_StaticObstacleAgent {
     #region envent handlers
     public void BallHitSomething (Collision collision)
     {
-        Debug.Log(" ----BALL HIT SOMETHING ");
+        //Debug.Log(" ----BALL HIT SOMETHING ");
         if (collision.collider.tag != "Player")
             m_rotationSpeed *= -1;
     }

@@ -1074,18 +1074,19 @@ MonoBehaviour:
   m_forwardAccel: 1
   m_forwardMaxVelocity: 6
   m_maxShield: 100
-  m_shieldRegenerationRate: 5
-  m_currentShield: 0
+  m_shieldDrainingFactor: 1
+  m_shieldRegenerationRate: 2
   m_nonHoverableSurfaces:
     serializedVersion: 2
     m_Bits: 256
+  m_currentShield: 0
+  m_totalDistance: 0
   m_states:
     m_current: {fileID: 0}
     m_disabled: {fileID: 0}
     m_waiting: {fileID: 0}
     m_running: {fileID: 0}
     m_stall: {fileID: 0}
-  m_totalDistance: 0
   m_references:
     m_cameraAnchor: {fileID: 4983576125637048}
     m_meshHolder: {fileID: 4407425683557484}
@@ -1095,6 +1096,7 @@ MonoBehaviour:
     m_mainHud: {fileID: 114168031393611900, guid: ba1c1678c26b07c4c9aec482ca15cec0,
       type: 2}
   m_gamecontroller: {fileID: 0}
+  m_lastUpdateVelocity: {x: 0, y: 0, z: 0}
 --- !u!224 &224537912238603630
 RectTransform:
   m_ObjectHideFlags: 1

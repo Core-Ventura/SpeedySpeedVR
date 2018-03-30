@@ -12,6 +12,8 @@ public class PSS_Running : PSS_PlayerShipState
         m_target.transform.rotation = m_roadSegments.m_startAnchor.transform.rotation;
 
         m_lastPosition = m_target.transform.position;
+
+        m_target.m_currentShield = m_target.m_maxShield;
         m_target.AA_ResetShipStatus();
     }
 
@@ -19,6 +21,7 @@ public class PSS_Running : PSS_PlayerShipState
     {
     }
 
+    #region physics called from m_target
     public override void FixedUpdate()
     {
 
@@ -27,8 +30,19 @@ public class PSS_Running : PSS_PlayerShipState
         m_target.AA_AddForwardForce();
         
     }
+    public override void OnCollisionEnter()
+    {
+        Debug.Log("---XXXXXship collision at velocity " + m_target.m_lastUpdateVelocity + " ---");
+        m_target.AA_DrainShield(m_target.m_lastUpdateVelocity.z * 5f);
+        if (m_target.m_currentShield <= 0 )
+        {
+            m_target.SM_GoToStall();
+        }
 
- 
+    }
+
+    #endregion
+
     public override void Update()
     {
         #region set auxiliar components position
@@ -57,6 +71,9 @@ public class PSS_Running : PSS_PlayerShipState
 
         #endregion
 
+        
+
+        //Debug.Log("--- " + m_target.m_references.m_rigidbody.velocity);
 
         //Debug.Log(m_target.m_totalDistance);
     }
@@ -66,9 +83,11 @@ public class PSS_Running : PSS_PlayerShipState
         m_roadSegments = FindObjectOfType<RoadSegmentsManager>();
     }
 
+
+
     RoadSegmentsManager m_roadSegments;
     Vector3 m_lastPosition;
 
-
+    
 }
 
