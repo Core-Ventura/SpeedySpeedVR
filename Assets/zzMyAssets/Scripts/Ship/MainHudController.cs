@@ -11,6 +11,7 @@ public class MainHudController : MonoBehaviour {
         m_references.m_speedSlider.value = m_references.m_playerShip.m_references.m_rigidbody.velocity.z / m_references.m_playerShip.m_forwardMaxVelocity;
         AA_UpdateLateralSpeedDisplay();
         AA_UpdateShieldDisplay ();
+        m_references.m_distance.text = m_references.m_playerShip.m_totalDistance.ToString("n0");
     }
 
 
@@ -95,5 +96,6 @@ public class MainHudController : MonoBehaviour {
         public Slider m_lateralSpeedSlider;
         public Slider m_shieldSlider;
         public Image m_lateralSpeedReporter;
+        public Text m_distance;
     }
 }
