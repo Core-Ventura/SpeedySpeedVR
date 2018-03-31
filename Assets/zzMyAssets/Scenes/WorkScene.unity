@@ -1033,21 +1033,6 @@ Prefab:
       propertyPath: m_targetRigidbody
       value: 
       objectReference: {fileID: 940731557}
-    - target: {fileID: 82589025783644790, guid: 7a58b6f680cd8b24b82849ea25aba63b,
-        type: 2}
-      propertyPath: spreadCustomCurve.m_RotationOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 82589025783644790, guid: 7a58b6f680cd8b24b82849ea25aba63b,
-        type: 2}
-      propertyPath: MaxDistance
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 82589025783644790, guid: 7a58b6f680cd8b24b82849ea25aba63b,
-        type: 2}
-      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7a58b6f680cd8b24b82849ea25aba63b, type: 2}
   m_IsPrefabParent: 0
@@ -1966,7 +1951,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1886763666
 Transform:
   m_ObjectHideFlags: 0
@@ -2400,6 +2385,11 @@ Prefab:
     - target: {fileID: 4596251422339460, guid: 08418d308e904b243b733c47d77d78f8, type: 2}
       propertyPath: m_RootOrder
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 82550399934186776, guid: 08418d308e904b243b733c47d77d78f8,
+        type: 2}
+      propertyPath: m_Volume
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 08418d308e904b243b733c47d77d78f8, type: 2}
