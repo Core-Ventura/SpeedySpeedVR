@@ -90,6 +90,7 @@ public class GameController : MonoBehaviour {
     float m_maxTilt = 60f;
     [SerializeField]
     float m_distanceToGuis = 1;
+    public float m_rowObstacleChance = 0;
 
     [SerializeField]
     bool m_runNonStereo = false;

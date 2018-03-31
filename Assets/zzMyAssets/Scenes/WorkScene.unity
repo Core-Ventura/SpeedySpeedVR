@@ -317,8 +317,11 @@ MonoBehaviour:
   m_startingBubble: 5
   m_startingBaller: 10
   m_staticObstacles: {fileID: 0}
+  m_rowObstacles: {fileID: 0}
   m_rowAgents: {fileID: 0}
   m_stencils:
+    m_mobileGate: {fileID: 114578094955350374, guid: c5830942dbb65344ea0f1fd5913c1176,
+      type: 2}
     m_staticObstacle: {fileID: 114111778121290762, guid: 03e1459f5dc55b143aa0dae104e9d2e9,
       type: 2}
     m_soaBaller: {fileID: 114691001658538836, guid: 9b2fe89855e6a374997fba643f0a64b5,
@@ -1522,6 +1525,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_maxTilt: 0.4
   m_distanceToGuis: 1
+  m_rowObstacleChance: 0.2
   m_runNonStereo: 0
   m_references:
     m_rotationAnchor: {fileID: 1058886045}

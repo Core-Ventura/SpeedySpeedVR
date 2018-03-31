@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FRO_MobileGate : MonoBehaviour {
+public class FRO_MobileGate : FRO_FullRowObstacle
+{
 
-    public void AwakeFromPool()
+    public  override void AwakeFromPool()
     {
 
         gameObject.SetActive(true);
@@ -15,7 +16,7 @@ public class FRO_MobileGate : MonoBehaviour {
         m_animator.Play("PingPong", -1, normalizedStart);
     }
 
-    public void SleepToPool()
+    public override void SleepToPool()
     {
         gameObject.SetActive(false);
     }

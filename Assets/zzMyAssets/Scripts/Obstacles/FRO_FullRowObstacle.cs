@@ -5,11 +5,11 @@ using UnityEngine;
 
 public class FRO_FullRowObstacle : MonoBehaviour, IPoolable
 {
-    public void AwakeFromPool()
+    public virtual void AwakeFromPool()
     {
     }
 
-    public void SleepToPool()
+    public virtual void SleepToPool()
     {
     }
 }
