@@ -20,14 +20,14 @@ public class SOA_Bubble : SOA_StaticObstacleAgent
         #region Visuals
         float normalizedStart = Random.Range(0f, 1f);
 
-        Debug.Log(" started at " + normalizedStart.ToString("N5"));
+        //Debug.Log(" started at " + normalizedStart.ToString("N5"));
         m_references.m_bubbleAnimator.Play("VerticalTiling", -1, normalizedStart);
         #endregion
 
         m_references.m_arrow.rectTransform.rotation = Quaternion.identity;
         m_references.m_arrow.color = Color.white;
 
-        int selectedForce = Random.Range(0, m_randomForces.Length - 1);
+        int selectedForce = Random.Range(0, m_randomForces.Length);
         pushForce = m_randomForces[selectedForce] * (Random.Range(0, 2) * 2 - 1);
 
 
@@ -62,7 +62,7 @@ public class SOA_Bubble : SOA_StaticObstacleAgent
 
         m_targetRigidbody.AddForce(m_targetRigidbody.transform.right * pushForce, ForceMode.Impulse);
         m_references.m_pushAudioSource.Play();
-        Debug.Log("----pushed X " + pushForce);
+        //Debug.Log("----pushed X " + pushForce);
         m_armed = false;
 
     }

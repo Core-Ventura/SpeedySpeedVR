@@ -224,8 +224,8 @@ PlayerSettings:
   AndroidTargetDevice: 0
   AndroidSplashScreenScale: 0
   androidSplashScreen: {fileID: 0}
-  AndroidKeystoreName: 
-  AndroidKeyaliasName: 
+  AndroidKeystoreName: D:/Intercambio/Proyectos/AndroidKeys/AndroidKeys.keystore
+  AndroidKeyaliasName: speedyspeed
   AndroidTVCompatibility: 1
   AndroidIsGame: 1
   AndroidEnableTango: 0
@@ -241,7 +241,7 @@ PlayerSettings:
   - m_BuildTarget: 
     m_Icons:
     - serializedVersion: 2
-      m_Icon: {fileID: 2800000, guid: 2da7ac4030df0fb47920b093290699cf, type: 3}
+      m_Icon: {fileID: 2800000, guid: e246e8f91d5b04c479c5bad0b1448524, type: 3}
       m_Width: 128
       m_Height: 128
       m_Kind: 0
