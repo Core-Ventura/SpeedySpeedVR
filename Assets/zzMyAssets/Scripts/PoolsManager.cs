@@ -14,7 +14,7 @@ public class PoolsManager : Singleton <PoolsManager>
         m_roadSegmentPool = ScriptableObject.CreateInstance<Pool>();
         m_roadSegmentPool.Init(transform, m_stencils.m_roadSegment, 4);
         */
-
+        #region static obstacles
         m_staticObstacles = ScriptableObject.CreateInstance<Pool>();
         GameObject staticObstaclesHolder = new GameObject("StaticObstaclesHolder");
         staticObstaclesHolder.transform.parent = transform;
@@ -37,11 +37,22 @@ public class PoolsManager : Singleton <PoolsManager>
             m_staticObstacles.AA_SendToPool(Instantiate(m_stencils.m_soaBubble.gameObject));
 
         }
+        #endregion
+        
+        #region row obstacles
+        m_rowObstacles = ScriptableObject.CreateInstance<Pool>();
+        GameObject rowObstaclesHolder = new GameObject("RowObstaclesHolder");
+        rowObstaclesHolder.transform.parent = transform;
+        m_rowObstacles.Init(rowObstaclesHolder.transform, m_stencils.m_mobileGate.gameObject, 5);
 
+        #endregion
+        
+        #region Rows 
         m_rowAgents = ScriptableObject.CreateInstance<Pool>();
         GameObject rowagentsHolder = new GameObject("RowAgentsHolder");
         rowagentsHolder.transform.parent = transform;
         m_rowAgents.Init(rowagentsHolder.transform, m_stencils.m_rowAgent.gameObject, 0);
+        #endregion
     }
     public void testSingleton()
     {
@@ -61,7 +72,9 @@ public class PoolsManager : Singleton <PoolsManager>
 
     [Header ("Watch only")]
     public Pool m_staticObstacles;
+    public Pool m_rowObstacles;
     public Pool m_rowAgents;
+    
 
     /*
     public Pool m_roadSegmentPool;
@@ -74,6 +87,7 @@ public class PoolsManager : Singleton <PoolsManager>
     public class PoolsManagerStencils
     {
         //  public GameObject m_roadSegment;
+        public FRO_MobileGate m_mobileGate;
         public SOA_StaticObstacleAgent m_staticObstacle;
         public SOA_Baller m_soaBaller;
         public SOA_Bubble m_soaBubble;

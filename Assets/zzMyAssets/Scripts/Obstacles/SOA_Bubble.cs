@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SOA_Bubble : SOA_StaticObstacleAgent
 {
@@ -19,21 +20,51 @@ public class SOA_Bubble : SOA_StaticObstacleAgent
         #region Visuals
         float normalizedStart = Random.Range(0f, 1f);
 
-        Debug.Log(" started at " + normalizedStart.ToString("N5"));
+        //Debug.Log(" started at " + normalizedStart.ToString("N5"));
         m_references.m_bubbleAnimator.Play("VerticalTiling", -1, normalizedStart);
-        #endregion        
+        #endregion
+
+        m_references.m_arrow.rectTransform.rotation = Quaternion.identity;
+        m_references.m_arrow.color = Color.white;
+
+        int selectedForce = Random.Range(0, m_randomForces.Length);
+        pushForce = m_randomForces[selectedForce] * (Random.Range(0, 2) * 2 - 1);
+
+
+        #region set visual feedback
+        if (pushForce > 0)
+            m_references.m_arrow.rectTransform.Rotate(new Vector3(0, 0, -90));
+        else
+            m_references.m_arrow.rectTransform.Rotate(new Vector3(0, 0, 90));
+
+        switch (selectedForce)
+        {
+            case 0:
+                m_references.m_arrow.color = Color.green;
+                break;
+            case 1:
+                m_references.m_arrow.color = Color.yellow;
+                break;
+            case 2:
+                m_references.m_arrow.color = Color.red;
+                break;
+        }
+        #endregion
+
     }
 
     private void Update()
     {
         if (!m_armed || m_pushTime > Time.time)
             return;
+        
 
-        float pushForce = m_randomForces[Random.Range(0, m_randomForces.Length - 1)] * (Random.Range (0,2) * 2 -1);
+
         m_targetRigidbody.AddForce(m_targetRigidbody.transform.right * pushForce, ForceMode.Impulse);
         m_references.m_pushAudioSource.Play();
-        Debug.Log("----pushed X " + pushForce);
+        //Debug.Log("----pushed X " + pushForce);
         m_armed = false;
+
     }
 
     void AA_ArmObstacle (Collider other)
@@ -86,8 +117,8 @@ public class SOA_Bubble : SOA_StaticObstacleAgent
 
     [SerializeField]
     SOA_BubbleReferences m_references;
-    
 
+    float pushForce;
     [System.Serializable]
     public class SOA_BubbleReferences
     {
@@ -95,5 +126,6 @@ public class SOA_Bubble : SOA_StaticObstacleAgent
         public Animator m_bubbleAnimator;
         public LSTR_PhysicsEvents m_listener;
         public AudioSource m_pushAudioSource;
+        public Image m_arrow;
     }
 }
